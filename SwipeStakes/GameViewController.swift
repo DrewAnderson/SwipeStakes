@@ -1,4 +1,4 @@
-// Main Game
+// Lobby 
 import UIKit
 import AVFoundation
 

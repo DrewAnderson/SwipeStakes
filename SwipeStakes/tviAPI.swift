@@ -1,7 +1,6 @@
 //
 //  tviAPI.swift
 //  SwipeStakes
-//
 //  Created by Andrew Anderson on 5/7/24.
 //
 
