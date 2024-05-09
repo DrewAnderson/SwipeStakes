@@ -6,7 +6,7 @@
 import UIKit
 import AVFoundation
 let maxItems = 5
-var currentIndex: Int = 0
+
 // MARK: - Footer UI Setup
 extension GameViewController {
     
@@ -56,7 +56,7 @@ extension GameViewController {
 
     @objc func refreshAction() {
         print("Refresh button tapped")
-        
+        //goToNextVideo()
     }
 
     @objc func addAction() {
@@ -64,60 +64,66 @@ extension GameViewController {
     }
 
     @objc func playVideo() {
-        print("Play Video button tapped")
-        videoPlayer.play()
+        print("Play Next Video button tapped")
+        //videoPlayer.play()
+        goToNextVideo()
     }
 
     @objc func pauseVideo() {
         print("Pause Video button tapped")
         videoPlayer.pause()
+        //goToPreviousVideo()
     }
     
-    // MARK: - Setup Vertical Stack
-    func setupProfileButton() {
-            profileButton = UIButton(frame: CGRect(x: 0, y: 0, width: 240, height: 240))
-            profileButton.layer.cornerRadius = 25
-            profileButton.layer.borderWidth = 2
-            profileButton.layer.borderColor = UIColor.white.cgColor
+    // MARK: - Setup Vertical Toolbar Stack
+        func setupProfileButton() {
+            profileButton = UIButton(frame: CGRect(x: 0, y: 0, width: 140, height: 140)) // Increased size
+            profileButton.layer.cornerRadius = 3 // Adjusted for larger size
+            //profileButton.layer.borderWidth = 2
+            //profileButton.layer.borderColor = UIColor.white.cgColor
             profileButton.clipsToBounds = true
-            profileButton.setImage(UIImage(systemName: "person.fill"), for: .normal)  // Default gray person icon
+            profileButton.setImage(UIImage(systemName: "person.fill"), for: .normal)
             profileButton.tintColor = .white
-            profileButton.backgroundColor = .gray
+            profileButton.backgroundColor = .clear
             profileButton.addTarget(self, action: #selector(profileButtonTapped), for: .touchUpInside)
         }
-        
+
         func setupButtonStack() {
             let stackView = UIStackView()
             stackView.axis = .vertical
             stackView.distribution = .fillEqually
-            stackView.alignment = .center
-            stackView.spacing = 10
-            
+            stackView.alignment = .fill  // Change alignment to fill to stretch buttons to fit the stack view's width
+            stackView.spacing = 20  // Maintain the increased spacing for aesthetics
+
             // Add profile button at the top
             stackView.addArrangedSubview(profileButton)
-            
+
             // Create other buttons based on icons array
             for icon in icons {
                 let button = UIButton()
-                button.frame = CGRect(x: 0, y: 0, width: 240, height: 240)
-                button.layer.cornerRadius = 20
-                button.layer.borderWidth = 2
-                button.layer.borderColor = UIColor.white.cgColor
+                button.frame = CGRect(x: 0, y: 0, width: 100, height: 100)  // Button size increased for visibility
+                button.layer.cornerRadius = 3  // Adjust corner radius proportionally
+                //button.layer.borderWidth = 2
+                //button.layer.borderColor = UIColor.white.cgColor
                 button.setImage(UIImage(systemName: icon), for: .normal)
                 button.tintColor = .white
                 button.backgroundColor = .clear
                 stackView.addArrangedSubview(button)
             }
-            
+
             stackView.translatesAutoresizingMaskIntoConstraints = false
             view.addSubview(stackView)
-            
-            // Constraints
+
+            // Adjusted constraints for flush right alignment
             NSLayoutConstraint.activate([
-                stackView.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -10),
-                stackView.centerYAnchor.constraint(equalTo: view.centerYAnchor),
-                stackView.widthAnchor.constraint(equalToConstant: 50)
+                stackView.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: 0), // Ensure there is no constant offset
+                stackView.centerYAnchor.constraint(equalTo: view.centerYAnchor),  // Center vertically in the view
+                stackView.widthAnchor.constraint(equalToConstant: 50)  // Match width of buttons
             ])
+        
+
+    
+    
         }
         
         @objc func profileButtonTapped() {
@@ -148,90 +154,5 @@ extension GameViewController {
         print("goToNextVideo SWIPED")
         goToNextVideo()
     }
-    
-
-    func setupPlaylist(startingFrom index: Int = 0) {
-        videoPlayer.pause()
-        videoPlayer.removeAllItems()
-
-        // Add items to the player starting from the specified index
-        for i in 0..<maxItems {
-            let itemIndex = (index + i) % playlistURLs.count
-            let url = URL(string: playlistURLs[itemIndex])!
-            let playerItem = AVPlayerItem(url: url)
-            videoPlayer.insert(playerItem, after: nil)
-        }
-
-        videoPlayer.advanceToNextItem()  // Start playing from the first item inserted
-        videoPlayer.play()
-        print("Playlist (re)initialized starting from index: \(index)")
-    }
-
-    @objc func goToNextVideo() {
-        print(">> Going To Next Video")
-
-        if videoPlayer.items().isEmpty {
-            print("The playlist is empty.")
-            return
-        }
-
-        currentIndex = (currentIndex + 1) % maxItems  // Increment and wrap around if necessary
-        let nextURL = playlistURLs[currentIndex]
-        print("Moving to next video, index: \(currentIndex), URL: \(nextURL)")
-
-        // Create a new player item and set it as the current item
-        let nextItem = AVPlayerItem(url: URL(string: nextURL)!)
-        videoPlayer.replaceCurrentItem(with: nextItem)
-        videoPlayer.play()
-        print("Video is now playing.")
-    }
-
-
-
-
-
-
-    @objc func goToPreviousVideo() {
-        print("<< Going To Previous Video")
-
-        if videoPlayer.items().isEmpty {
-            print("The playlist is empty.")
-            return
-        }
-
-        currentIndex = (currentIndex - 1 + maxItems) % maxItems  // Decrement and wrap around if necessary
-        let previousURL = playlistURLs[currentIndex]
-        print("Moving to previous video, index: \(currentIndex), URL: \(previousURL)")
-
-        // Create a new player item and set it as the current item
-        let previousItem = AVPlayerItem(url: URL(string: previousURL)!)
-        videoPlayer.replaceCurrentItem(with: previousItem)
-        videoPlayer.play()
-        print("Video is now playing.")
-    }
-
-
-
-    func initializePlaylist(startingFrom index: Int) {
-        videoPlayer.pause()
-        videoPlayer.removeAllItems()
-        
-        // Create and insert new AVPlayerItems starting from the specified index
-        let items = (index..<index + maxItems).map { i in
-            AVPlayerItem(url: URL(string: playlistURLs[i % maxItems])!)
-        }
-        
-        for item in items {
-            videoPlayer.insert(item, after: videoPlayer.items().last)
-        }
-        
-        videoPlayer.advanceToNextItem()
-        videoPlayer.play()
-        print("Playlist reinitialized starting from index \(index)")
-    }
-
-
-
-
     
 }

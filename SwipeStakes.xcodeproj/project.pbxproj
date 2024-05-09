@@ -13,7 +13,6 @@
 		2D4A5DCA2BEA67170007E444 /* GameScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D4A5DC92BEA67170007E444 /* GameScene.swift */; };
 		2D4A5DCC2BEA67170007E444 /* GameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D4A5DCB2BEA67170007E444 /* GameViewController.swift */; };
 		2D4A5DCF2BEA67170007E444 /* Base in Resources */ = {isa = PBXBuildFile; fileRef = 2D4A5DCE2BEA67170007E444 /* Base */; };
-		2D4A5DD12BEA67190007E444 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2D4A5DD02BEA67190007E444 /* Assets.xcassets */; };
 		2D4A5DD42BEA67190007E444 /* Base in Resources */ = {isa = PBXBuildFile; fileRef = 2D4A5DD32BEA67190007E444 /* Base */; };
 		2D4A5DDE2BEA67190007E444 /* SwipeStakesTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D4A5DDD2BEA67190007E444 /* SwipeStakesTests.swift */; };
 		2D4A5DE82BEA67190007E444 /* SwipeStakesUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D4A5DE72BEA67190007E444 /* SwipeStakesUITests.swift */; };
@@ -21,6 +20,9 @@
 		2D4A5DF92BEA84FE0007E444 /* GameViewController+UI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D4A5DF82BEA84FE0007E444 /* GameViewController+UI.swift */; };
 		2D4A5DFB2BEA87620007E444 /* tviAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D4A5DFA2BEA87620007E444 /* tviAPI.swift */; };
 		2D4A5DFD2BEA89740007E444 /* GameConfiguration.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D4A5DFC2BEA89740007E444 /* GameConfiguration.swift */; };
+		2D87C3682BEBF8E500004D87 /* GameViewSplashScreenController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D87C3672BEBF8E500004D87 /* GameViewSplashScreenController.swift */; };
+		2D87C36A2BEC00C400004D87 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2D87C3692BEC00C400004D87 /* Assets.xcassets */; };
+		2D87C3762BED227200004D87 /* money-soundfx.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 2D87C3752BEC6CD400004D87 /* money-soundfx.mp3 */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -48,7 +50,6 @@
 		2D4A5DC92BEA67170007E444 /* GameScene.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameScene.swift; sourceTree = "<group>"; };
 		2D4A5DCB2BEA67170007E444 /* GameViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameViewController.swift; sourceTree = "<group>"; };
 		2D4A5DCE2BEA67170007E444 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
-		2D4A5DD02BEA67190007E444 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		2D4A5DD32BEA67190007E444 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		2D4A5DD92BEA67190007E444 /* SwipeStakesTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SwipeStakesTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		2D4A5DDD2BEA67190007E444 /* SwipeStakesTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwipeStakesTests.swift; sourceTree = "<group>"; };
@@ -59,6 +60,9 @@
 		2D4A5DFA2BEA87620007E444 /* tviAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = tviAPI.swift; sourceTree = "<group>"; };
 		2D4A5DFC2BEA89740007E444 /* GameConfiguration.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameConfiguration.swift; sourceTree = "<group>"; };
 		2D4A5DFE2BEAEF470007E444 /* CHANGELOG.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = CHANGELOG.md; sourceTree = "<group>"; };
+		2D87C3672BEBF8E500004D87 /* GameViewSplashScreenController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameViewSplashScreenController.swift; sourceTree = "<group>"; };
+		2D87C3692BEC00C400004D87 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		2D87C3752BEC6CD400004D87 /* money-soundfx.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "money-soundfx.mp3"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -109,17 +113,19 @@
 		2D4A5DC22BEA67170007E444 /* SwipeStakes */ = {
 			isa = PBXGroup;
 			children = (
+				2D87C3752BEC6CD400004D87 /* money-soundfx.mp3 */,
+				2D87C3692BEC00C400004D87 /* Assets.xcassets */,
 				2D4A5DC32BEA67170007E444 /* AppDelegate.swift */,
 				2D4A5DC52BEA67170007E444 /* GameScene.sks */,
 				2D4A5DC72BEA67170007E444 /* Actions.sks */,
 				2D4A5DC92BEA67170007E444 /* GameScene.swift */,
 				2D4A5DCB2BEA67170007E444 /* GameViewController.swift */,
 				2D4A5DF82BEA84FE0007E444 /* GameViewController+UI.swift */,
+				2D87C3672BEBF8E500004D87 /* GameViewSplashScreenController.swift */,
 				2D4A5DFE2BEAEF470007E444 /* CHANGELOG.md */,
 				2D4A5DFA2BEA87620007E444 /* tviAPI.swift */,
 				2D4A5DFC2BEA89740007E444 /* GameConfiguration.swift */,
 				2D4A5DCD2BEA67170007E444 /* Main.storyboard */,
-				2D4A5DD02BEA67190007E444 /* Assets.xcassets */,
 				2D4A5DD22BEA67190007E444 /* LaunchScreen.storyboard */,
 			);
 			path = SwipeStakes;
@@ -246,11 +252,12 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2D87C3762BED227200004D87 /* money-soundfx.mp3 in Resources */,
 				2D4A5DC62BEA67170007E444 /* GameScene.sks in Resources */,
 				2D4A5DCF2BEA67170007E444 /* Base in Resources */,
-				2D4A5DD12BEA67190007E444 /* Assets.xcassets in Resources */,
 				2D4A5DC82BEA67170007E444 /* Actions.sks in Resources */,
 				2D4A5DD42BEA67190007E444 /* Base in Resources */,
+				2D87C36A2BEC00C400004D87 /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -277,6 +284,7 @@
 			files = (
 				2D4A5DF92BEA84FE0007E444 /* GameViewController+UI.swift in Sources */,
 				2D4A5DCA2BEA67170007E444 /* GameScene.swift in Sources */,
+				2D87C3682BEBF8E500004D87 /* GameViewSplashScreenController.swift in Sources */,
 				2D4A5DFD2BEA89740007E444 /* GameConfiguration.swift in Sources */,
 				2D4A5DCC2BEA67170007E444 /* GameViewController.swift in Sources */,
 				2D4A5DFB2BEA87620007E444 /* tviAPI.swift in Sources */,
@@ -462,14 +470,15 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_ASSET_PATHS = "SwipeStakes/money-soundfx.mp3";
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.trivia-games";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
 				INFOPLIST_KEY_UIStatusBarHidden = YES;
-				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationPortrait";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -490,14 +499,15 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_ASSET_PATHS = "SwipeStakes/money-soundfx.mp3";
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.trivia-games";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
 				INFOPLIST_KEY_UIStatusBarHidden = YES;
-				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationPortrait";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
